@@ -133,7 +133,7 @@ namespace ConsoleApp1
                 //Chrome closes and reopens after 30 minutes.
                 driver.Quit();
                 Thread.Sleep(1800000);
-                
+
             }
         }
     }
