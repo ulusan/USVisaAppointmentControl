@@ -28,6 +28,8 @@ namespace ConsoleApp1
                     Console.WriteLine("Tıklama düğmesi bulunamadı");
                 }
 
+                Thread.Sleep(1000);
+
                 try
                 {
                     //The e-mail input
@@ -46,6 +48,7 @@ namespace ConsoleApp1
                     Console.WriteLine("Input bulunamadı");
                 }
 
+                Thread.Sleep(1000);
 
                 try
                 {
@@ -58,6 +61,7 @@ namespace ConsoleApp1
                 {
                     Console.WriteLine("checkbox bulunamadı");
                 }
+                Thread.Sleep(1000);
 
                 try
                 {
@@ -70,7 +74,7 @@ namespace ConsoleApp1
                     Console.WriteLine("Tıklama düğmesi bulunamadı");
                 }
 
-                Thread.Sleep(3000);
+                Thread.Sleep(2000);
 
                 try
                 {
@@ -85,6 +89,7 @@ namespace ConsoleApp1
                 {
                     Console.WriteLine("Tıklama düğmesi bulunamadı");
                 }
+                Thread.Sleep(1000);
 
                 try
                 {
@@ -94,6 +99,7 @@ namespace ConsoleApp1
                     var optionAnkara = selectElement.FindElement(By.XPath("//option[text()='Ankara']"));
                     var optionIstanbul = selectElement.FindElement(By.XPath("//option[text()='Istanbul']"));
                     optionAnkara.Click();
+                    Thread.Sleep(1000);
                     optionIstanbul.Click();
                 }
                 catch (NoSuchElementException)
@@ -101,7 +107,7 @@ namespace ConsoleApp1
                     Console.WriteLine("Tıklama düğmesi bulunamadı");
 
                 }
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
 
                 try
                 {
