@@ -10,8 +10,11 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //Download ChromeDriver according to your Google Chrome version.
-            var driver = new ChromeDriver(@"C:\Users\User\Desktop\chromedriver_win32 (2)");
+            //int target = 48;
+            for (int i = 0; i < 30; i++)
+            {
+                //Download ChromeDriver according to your Google Chrome version.
+                var driver = new ChromeDriver(@"C:\Users\User\Desktop\chromedriver_win32 (2)");
             //UsVisa URL
             driver.Navigate().GoToUrl("https://ais.usvisa-info.com/tr-tr/niv/schedule/45910810/appointment");
             Thread.Sleep(3000);
@@ -76,9 +79,10 @@ namespace ConsoleApp1
             Console.WriteLine(message.Body);
 
 
-            Thread.Sleep(90000);
+            Thread.Sleep(1800000);
 
-            driver.Close();
+            //driver.Close();
+            }
         }
     }
 }
