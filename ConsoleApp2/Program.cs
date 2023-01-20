@@ -10,7 +10,6 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //int target = 48;
             for (int i = 0; i < 30; i++)
             {
                 //Download ChromeDriver according to your Google Chrome version.
