@@ -13,7 +13,7 @@ namespace ConsoleApp1
             for (int i = 0; i < 60; i++)
             {
                 //Download ChromeDriver according to your Google Chrome version.
-                var driver = new ChromeDriver(@"C:\Users\User\Desktop\chromedriver_win32 (2)");
+                var driver = new ChromeDriver(@"/Users/ulusan/Desktop/chromedriver_mac_arm64");
                 //UsVisa URL
                 driver.Navigate().GoToUrl("https://ais.usvisa-info.com/tr-tr/niv/schedule/45910810/appointment");
                 Thread.Sleep(3000);
@@ -25,7 +25,7 @@ namespace ConsoleApp1
                 }
                 catch (NoSuchElementException)
                 {
-                    Console.WriteLine("Tıklama düğmesi bulunamadı");
+                    Console.WriteLine("Close düğmesi bulunamadı");
                 }
 
                 Thread.Sleep(1000);
@@ -45,7 +45,7 @@ namespace ConsoleApp1
                 }
                 catch (NoSuchElementException)
                 {
-                    Console.WriteLine("Input bulunamadı");
+                    Console.WriteLine("SignIn Inputs bulunamadı");
                 }
 
                 Thread.Sleep(1000);
@@ -71,7 +71,7 @@ namespace ConsoleApp1
                 }
                 catch (NoSuchElementException)
                 {
-                    Console.WriteLine("Tıklama düğmesi bulunamadı");
+                    Console.WriteLine("Oturum Aç Butonu Bulunamadı");
                 }
 
                 Thread.Sleep(2000);
@@ -84,10 +84,11 @@ namespace ConsoleApp1
                     accordionTitle.Click();
                     IWebElement submitButton21 = driver.FindElement(By.XPath("//input[@class='button small primary small-only-expanded' and @value='Randevu Zamanı Al']"));
                     submitButton21.Click();
+
                 }
                 catch (NoSuchElementException)
                 {
-                    Console.WriteLine("Tıklama düğmesi bulunamadı");
+                    Console.WriteLine("Devam et/ Randevu zamanı al bulunamadı");
                 }
                 Thread.Sleep(1000);
 
@@ -104,8 +105,7 @@ namespace ConsoleApp1
                 }
                 catch (NoSuchElementException)
                 {
-                    Console.WriteLine("Tıklama düğmesi bulunamadı");
-
+                    Console.WriteLine("Select İşlemi Yapılmadı");
                 }
                 Thread.Sleep(1000);
 
@@ -115,24 +115,38 @@ namespace ConsoleApp1
                     var small = div.FindElement(By.TagName("small"));
                     var text = "ISTANBUL = " + small.Text + "\n" + "\n" + "ANKARA = " + small.Text;
                     Console.WriteLine(text);
-                    var accountSid = "AC7172334af7269bee75e6873eb4c18c38";
-                    var authToken = "b1e4ce804bbb67a45e64e5b29d5db10c";
-                    TwilioClient.Init(accountSid, authToken);
-                    var messageOptions = new CreateMessageOptions(
+                    var accountSidEmre = "AC7172334af7269bee75e6873eb4c18c38";
+                    var authTokenEmre = "b1e4ce804bbb67a45e64e5b29d5db10c";
+                    TwilioClient.Init(accountSidEmre, authTokenEmre);
+                    var messageOptionsEmre = new CreateMessageOptions(
                         new Twilio.Types.PhoneNumber("whatsapp:+905321321184"));
-                    messageOptions.From = new Twilio.Types.PhoneNumber("whatsapp:+14155238886");
-                    messageOptions.Body = "USVISA'dan Bildirim => " + "\n" + "\n" + text + "\n" + "\n" + "[Developed by UlusanSoftware]";
-                    var message = MessageResource.Create(messageOptions);
-                    Console.WriteLine(message.Body);
+                    messageOptionsEmre.From = new Twilio.Types.PhoneNumber("whatsapp:+14155238886");
+                    messageOptionsEmre.Body = "USVISA'dan Bildirim => " + "\n" + "\n" + text + "\n" + "\n" + "[Developed by UlusanSoftware]";
+                    var messageEmre = MessageResource.Create(messageOptionsEmre);
+
+                    var accountSidKerim = "AC39c990d54f767c706bec922e4f522a94";
+                    var authTokenKerim = "9e8ac538290e58e49307bd96e0c7ca4b";
+                    TwilioClient.Init(accountSidKerim, authTokenKerim);
+                    var messageOptionsKerim = new CreateMessageOptions(
+                        new Twilio.Types.PhoneNumber("whatsapp:+905551848506"));
+                    messageOptionsKerim.From = new Twilio.Types.PhoneNumber("whatsapp:+14155238886");
+                    messageOptionsKerim.Body = "USVISA'dan Bildirim => " + "\n" + "\n" + text + "\n" + "\n" + "[Developed by KerimSekili]";
+                    var messageKerim = MessageResource.Create(messageOptionsKerim);
+
+                    Console.WriteLine(messageEmre.Body);
+                    Console.WriteLine(messageKerim.Body);
                 }
                 catch (NoSuchElementException)
                 {
-                    Console.WriteLine("Tıklama düğmesi bulunamadı");
+                    var div = driver.FindElement(By.Id("consulate_date_time_not_available"));
+                    var small = div.FindElement(By.TagName("small"));
+                    var text = "ISTANBUL = " + small.Text + "\n" + "\n" + "ANKARA = " + small.Text;
+                    Console.WriteLine("Mesaj Gönderilemedi ya da şuan randevu var hızlıca kontrol et = " + "\n" + text);
                 }
 
                 //Chrome closes and reopens after 30 minutes.
                 driver.Quit();
-                Thread.Sleep(1800000);
+                Thread.Sleep(900000);
 
             }
         }
