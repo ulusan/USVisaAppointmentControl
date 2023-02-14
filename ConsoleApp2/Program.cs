@@ -38,10 +38,10 @@ namespace ConsoleApp1
                     var passwordInput = driver.FindElement(By.Id("user_password"));
 
                     //Enter e-mail address
-                    emailInput.SendKeys("emre_ulusan@outlook.com");
+                    emailInput.SendKeys("e-mail");
 
                     //Enter password
-                    passwordInput.SendKeys("Mind2023");
+                    passwordInput.SendKeys("password");
                 }
                 catch (NoSuchElementException)
                 {
