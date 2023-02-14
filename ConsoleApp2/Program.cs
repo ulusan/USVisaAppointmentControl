@@ -119,7 +119,7 @@ namespace ConsoleApp1
                     var authTokenEmre = "b1e4ce804bbb67a45e64e5b29d5db10c";
                     TwilioClient.Init(accountSidEmre, authTokenEmre);
                     var messageOptionsEmre = new CreateMessageOptions(
-                        new Twilio.Types.PhoneNumber("whatsapp:+905321321184"));
+                        new Twilio.Types.PhoneNumber("whatsapp:+905559999999"));
                     messageOptionsEmre.From = new Twilio.Types.PhoneNumber("whatsapp:+14155238886");
                     messageOptionsEmre.Body = "USVISA'dan Bildirim => " + "\n" + "\n" + text + "\n" + "\n" + "[Developed by UlusanSoftware]";
                     var messageEmre = MessageResource.Create(messageOptionsEmre);
@@ -128,7 +128,7 @@ namespace ConsoleApp1
                     var authTokenKerim = "9e8ac538290e58e49307bd96e0c7ca4b";
                     TwilioClient.Init(accountSidKerim, authTokenKerim);
                     var messageOptionsKerim = new CreateMessageOptions(
-                        new Twilio.Types.PhoneNumber("whatsapp:+905551848506"));
+                        new Twilio.Types.PhoneNumber("whatsapp:+905559999999"));
                     messageOptionsKerim.From = new Twilio.Types.PhoneNumber("whatsapp:+14155238886");
                     messageOptionsKerim.Body = "USVISA'dan Bildirim => " + "\n" + "\n" + text + "\n" + "\n" + "[Developed by KerimSekili]";
                     var messageKerim = MessageResource.Create(messageOptionsKerim);
